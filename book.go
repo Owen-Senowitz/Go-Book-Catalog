@@ -22,3 +22,17 @@ func printBookList(bookList []Book) {
 	}
 	writer.Flush()
 }
+
+func addBookList(bookList []Book, book Book) []Book {
+	return append(bookList, book)
+}
+
+func removeBookFromList(bookList []Book, bookId int) []Book {
+	for i, _ := range bookList {
+		if bookList[i].bookId == bookId {
+			fmt.Println(i)
+			return append(bookList[:i], bookList[i+1:]...)
+		}
+	}
+	return bookList
+}

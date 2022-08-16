@@ -35,12 +35,14 @@ func main() {
 	}
 	var input int
 	for true {
+		fmt.Println("")
 		fmt.Println("1: View Book List")
 		fmt.Println("2: Add Book")
 		fmt.Println("3: Remove Book")
 		fmt.Println("4: Update Book")
 		fmt.Println("5: Save Books to File")
 		fmt.Println("6: Exit")
+		fmt.Println("")
 		fmt.Print("Input: ")
 		fmt.Scan(&input)
 		switch input {
@@ -51,10 +53,30 @@ func main() {
 			break
 		//Add Book
 		case 2:
+			var bookId int
+			var title string
+			var isbn int
+			var author string
+			var genre string
+			fmt.Println("Enter Book ID:")
+			fmt.Scan(&bookId)
+			fmt.Println("Enter Title:")
+			fmt.Scan(&title)
+			fmt.Println("Enter ISBN:")
+			fmt.Scan(&isbn)
+			fmt.Println("Enter Author:")
+			fmt.Scan(&author)
+			fmt.Println("Enter Genre:")
+			fmt.Scan(&genre)
+			bookList = addBookList(bookList, Book{bookId, title, isbn, author, genre})
 			input = 0
 			break
 		//Remove Book
 		case 3:
+			var bookId int
+			fmt.Println("Enter BookID to Delete:")
+			fmt.Scan(&bookId)
+			bookList = removeBookFromList(bookList, bookId)
 			input = 0
 			break
 		//Update Book
