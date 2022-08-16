@@ -47,10 +47,6 @@ func main() {
 		//View Book List
 		case 1:
 			printBookList(bookList)
-<<<<<<< HEAD
-			clear()
-=======
->>>>>>> 4703b99 (read books from file implemented and printing out all books from the list)
 			input = 0
 			break
 		//Add Book
