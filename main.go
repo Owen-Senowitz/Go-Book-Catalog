@@ -30,9 +30,7 @@ func main() {
 			panic(err)
 		}
 	}
-	for i, _ := range bookList {
-		fmt.Println(bookList[i])
-	}
+	printBookList(bookList)
 	var input int
 	for true {
 		fmt.Println("")
@@ -68,7 +66,7 @@ func main() {
 			fmt.Scan(&author)
 			fmt.Println("Enter Genre:")
 			fmt.Scan(&genre)
-			bookList = addBookList(bookList, Book{bookId, title, isbn, author, genre})
+			bookList = addBookToList(bookList, Book{bookId, title, isbn, author, genre})
 			input = 0
 			break
 		//Remove Book
@@ -81,10 +79,30 @@ func main() {
 			break
 		//Update Book
 		case 4:
+			var bookId int
+			var newBookId int
+			var title string
+			var isbn int
+			var author string
+			var genre string
+			fmt.Println("Enter The Book ID of the Book Updating:")
+			fmt.Scan(&bookId)
+			fmt.Println("Enter New Book ID:")
+			fmt.Scan(&newBookId)
+			fmt.Println("Enter New Title:")
+			fmt.Scan(&title)
+			fmt.Println("Enter New ISBN:")
+			fmt.Scan(&isbn)
+			fmt.Println("Enter New Author:")
+			fmt.Scan(&author)
+			fmt.Println("Enter New Genre:")
+			fmt.Scan(&genre)
+			bookList = updateBookFromList(bookList, bookId, Book{newBookId, title, isbn, author, genre})
 			input = 0
 			break
 		//Save Books to File
 		case 5:
+			saveBooks(bookList)
 			input = 0
 			break
 		//Exit
